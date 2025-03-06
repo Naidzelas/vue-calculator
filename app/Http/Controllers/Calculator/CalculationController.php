@@ -29,6 +29,9 @@ class CalculationController extends Controller
 
     public function create(Request $request)
     {
+        $request->validate([
+            'operation' => 'array|required',
+        ]);
 
         $result = $this->calculator->calculate($request->operation);
         Calculation::create([
