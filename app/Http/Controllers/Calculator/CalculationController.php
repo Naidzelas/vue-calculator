@@ -22,7 +22,7 @@ class CalculationController extends Controller
             ->limit(10)->get();
 
         return Inertia::render('Calculator', [
-            'result' => (float) $calculations->first()->result,
+            'result' => (float) $calculations->first()?->result,
             'calculatorHistory' => $calculations
         ]);
     }
