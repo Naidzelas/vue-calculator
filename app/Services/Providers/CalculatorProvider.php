@@ -16,9 +16,7 @@ class CalculatorProvider extends ServiceProvider
     public function register()
     {
         match ($this->app->environment()) {
-            default => $this->app->singleton(CalculatorRepositoryInterafce::class, function($app){
-               return new CalculatorRepository();
-            }),
+            default => $this->app->bind(CalculatorRepositoryInterafce::class, CalculatorRepository::class),
         };
     }
 }

@@ -10,11 +10,6 @@ use Inertia\Inertia;
 
 class CalculationController extends Controller
 {
-    private $calculator;
-    public function __construct(CalculatorService $calculator)
-    {
-        $this->calculator = $calculator;
-    }
     public function index(Request $request)
     {
         $calculations = Calculation::where('user_id', $request->user()->id)
@@ -32,8 +27,8 @@ class CalculationController extends Controller
         $request->validate([
             'operation' => 'array|required',
         ]);
-
-        $result = $this->calculator->calculate($request->operation);
+        $calculator = new CalculatorService();
+        $result = $calculator->calculate($request->operation);
         Calculation::create([
             'user_id' => $request->user()->id,
             'operation' => implode(' ', $request->operationDB),
