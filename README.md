@@ -1,6 +1,6 @@
 ## Description
 Calculator done in vue, laravel, inertiajs.
-[DEMO](https://vue-calculator-main-sxdgce.laravel.cloud/)
+[DEMO DISABLED](https://vue-calculator-main-sxdgce.laravel.cloud/)
 
 What could be done further:
   1. Add more operations and with that parser to block the string to account for (). Add 3rd level of priority.
